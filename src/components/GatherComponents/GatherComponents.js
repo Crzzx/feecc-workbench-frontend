@@ -7,6 +7,14 @@ import { LoadingButton } from "@mui/lab";
 import { doGetSchema, doRaiseNotification, doRemoveUnit } from "@reducers/stagesActions";
 import { CircularProgress, Paper } from "@mui/material";
 
+import { useTranslation } from "react-i18next";
+
+const GatherComponents = (props) => {
+  const { onClose } = useContext(ModalActionsContext);
+  const { enqueueSnackbar } = useSnackbar();
+  const { t } = useTranslation();
+};
+
 export default withTheme(withTranslation()(connect(
   (store) => ({
     unitComponents: store.stages.getIn(['composition', 'unit_components'])?.toJS()

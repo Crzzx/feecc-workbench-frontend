@@ -38,6 +38,12 @@ import {
   newDoRemoveUnit,
 } from "../../reducers/stagesActions";
 
+import { useTranslation } from "react-i18next";
+
+const Composition = (props) => {
+  const { onClose } = useContext(ModalActionsContext);
+  const { t } = useTranslation();
+
 class Composition extends React.Component {
   static propTypes = {
     steps: PropTypes.array,
@@ -81,7 +87,7 @@ class Composition extends React.Component {
         className={styles.notificationButton}
         onClick={() => this.props.closeSnackbar(key)}
       >
-        Закрыть
+        {t('CloseButton')}
       </button>
     </div>
   );
@@ -223,7 +229,7 @@ class Composition extends React.Component {
             return true;
           } else {
             this.props.enqueueSnackbar(
-              `Не удалось получить информацию об изделии. Попробуйте позже. Если ошибка повторится, то свяжитесь с системным администратором для устранения проблемы. Код ошибки: ${res.status_code}`,
+              `{t('FailedToRetrieveProductInformation')}. {t('TryLater')}. {t('IfTheErrorPersists')}, {t('ContactYourSystemAdministratorToResolveTheProblem')}. {t('ErrorCode')}: ${res.status_code}`,
               { variant: "error" }
             );
             // console.log("FETCH ERROR");
@@ -251,7 +257,7 @@ class Composition extends React.Component {
             return true;
           } else {
             this.props.enqueueSnackbar(
-              `Не удалось начать запись этапа. Попробуйте повторить позже. При многократном повторении данной ошибки обратитесь к системному администратору. Код ошибки: ${res.status_code}`,
+              `{t('FailedToStartRecordingTheStage')}. {t('PleaseTryAgainLater')}. {t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. {t('ErrorCode')}: ${res.status_code}`,
               { variant: "error" }
             );
             reject("Error during attempt to start recording");
@@ -273,7 +279,7 @@ class Composition extends React.Component {
           return true;
         } else {
           this.props.enqueueSnackbar(
-            `Не удалось завершить запись этапа. Попробуйте повторить позже. При многократном повторении данной ошибки обратитесь к системному администратору. Код ошибки ${res.status_code}`,
+            `{t('FailedToCompleteStageRecording')}. {t('PleaseTryAgainLater')}. {t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. {t('ErrorCode')} ${res.status_code}`,
             { variant: "error" }
           );
           this.toggleButtonLoading(loadBlock);
@@ -317,7 +323,7 @@ class Composition extends React.Component {
       .then((unitID) => {
         this.toggleButtonLoading(2);
         this.props.enqueueSnackbar(
-          `Паспорт ${unitID} успешно загружен в сеть IPFS`,
+          `{t('Passport')} ${unitID} {t('SuccessfullyUploadedToIPFSNetwork')}`,
           {
             variant: "success",
           }
@@ -336,10 +342,10 @@ class Composition extends React.Component {
                   unitID={this.props.compositionID}
                 />
               ),
-            actionName: "Продолжить без сохранения",
+            actionName: "{t('ContinueWithoutSaving')}",
           };
           const proceedKey = this.props.enqueueSnackbar(
-            `Ошибка загзузки сборки. Код ответа ${res?.response?.status}`,
+            `{t('ErrorLoadingAssembly')}. {t('ResponseCode')} ${res?.response?.status}`,
             {
               variant: "error",
               action: RepeatCloseActionButton.bind(bindObject),
@@ -361,7 +367,7 @@ class Composition extends React.Component {
           return true;
         } else {
           this.props.enqueueSnackbar(
-            `Не удалось убрать сборку со стола. Попробуйте позже. Если ошибка повторится, то свяжитесь с системным администратором для устранения проблемы. Код ошибки ${res.status_code}`,
+            `{t('FailedToRemoveAssemblyFromTable')}. {t('PleaseTryAgainLater')}. {t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. {t('ErrorCode')} ${res.status_code}`,
             { variant: "error" }
           );
           return false;
@@ -396,7 +402,7 @@ class Composition extends React.Component {
           return true;
         } else {
           this.props.enqueueSnackbar(
-            `Не удалось убрать сборку со стола. Попробуйте позже. Если ошибка повторится, то свяжитесь с системным администратором для устранения проблемы. Код ошибки ${res.status_code}`,
+            `{t('FailedToRemoveAssemblyFromTable')}. {t('PleaseTryAgainLater')}. {t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. {t('ErrorCode')} ${res.status_code}`,
             { variant: "error" }
           );
           return false;
@@ -609,7 +615,7 @@ class Composition extends React.Component {
                           }
                         }}
                       >
-                        {onPause ? "Снять с паузы" : t("SetOnPause")}
+                        {onPause ? "{t('Unpause')}" : t("SetOnPause")}
                       </LoadingButton>
                     </div>
                     {activeStep !== this.props.steps?.length - 1 && (
@@ -685,7 +691,7 @@ class Composition extends React.Component {
                   )
                 }
               >
-                Продолжить без сохранения
+                {t('ContinueWithoutSaving')}
               </LoadingButton>
             </div>
           </div>
@@ -694,6 +700,7 @@ class Composition extends React.Component {
     );
   }
 }
+};
 
 export default withSnackbar(
   withContext(
