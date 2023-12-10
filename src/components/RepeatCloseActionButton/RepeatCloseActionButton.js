@@ -4,6 +4,7 @@ import { useSnackbar } from "notistack";
 
 function RepeatCloseActionButton(key) {
   const { closeSnackbar } = useSnackbar();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.notificationButtons}>

@@ -40,11 +40,9 @@ import {
 
 import { useTranslation } from "react-i18next";
 
-const Composition = (props) => {
-  const { onClose } = useContext(ModalActionsContext);
-  const { t } = useTranslation();
-
 class Composition extends React.Component {
+
+
   static propTypes = {
     steps: PropTypes.array,
     unit: PropTypes.object,
@@ -700,7 +698,6 @@ class Composition extends React.Component {
     );
   }
 }
-};
 
 export default withSnackbar(
   withContext(

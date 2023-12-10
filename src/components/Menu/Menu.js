@@ -26,13 +26,8 @@ import {
 
 import { useTranslation } from "react-i18next";
 
-const Menu = (props) => {
-  const { onClose } = useContext(ModalActionsContext);
-  const { enqueueSnackbar } = useSnackbar();
-  const { t } = useTranslation();
-};
-
 export default withSnackbar(
+
   withTheme(
     withTranslation()(
       connect(

@@ -96,5 +96,13 @@ IfItIsPossibleNotToReloadThePage,Если есть возможность не �
 ThenYouShouldUseIt,то стоит воспользоваться ею,then you should use it
 Reboot,Перезагрузить,Reboot
 SuccessfullyUploadedToIPFSNetwork,успешно загружен в сеть IPFS,successfully uploaded to IPFS network
+ErrorGettingFormInformation,Ошибка получения информации о схеме,Error getting form information
+TryReloadingThePage,Попробуйте перезагрузить страницу,Try reloading the page
+ConnectionToTheServerCouldNotBeEstablished,Соединение с сервером не может быть установлено,A connection to the server could not be established
+TryingToReconnectVia,Попытка повторного подключения через,Trying to reconnect via
+Seconds,секунд,seconds
+TheConnectionToTheServerHasBeenRestored,Соединение с сервером восстановлено,The connection to the server has been restored
+ConnectionToServerEstablished,Соединение с сервером установлено,Connection to server established
+
 
 

@@ -7,14 +7,6 @@ import { LoadingButton } from "@mui/lab";
 import { doGetSchema, doRaiseNotification, doRemoveUnit } from "@reducers/stagesActions";
 import { CircularProgress, Paper } from "@mui/material";
 
-import { useTranslation } from "react-i18next";
-
-const GatherComponents = (props) => {
-  const { onClose } = useContext(ModalActionsContext);
-  const { enqueueSnackbar } = useSnackbar();
-  const { t } = useTranslation();
-};
-
 export default withTheme(withTranslation()(connect(
   (store) => ({
     unitComponents: store.stages.getIn(['composition', 'unit_components'])?.toJS()
@@ -25,6 +17,7 @@ export default withTheme(withTranslation()(connect(
     raiseNotification: (notificationMessage) => doRaiseNotification(dispatch, notificationMessage),
   })
 )(class GatherComponents extends React.Component {
+
 
   state = {
     loading: false,
@@ -42,7 +35,7 @@ export default withTheme(withTranslation()(connect(
               this.setState({schemas: {...obj}})
               return true
             } else {
-              this.props.raiseNotification('Ошибка получения информации о схеме. Попробуйте перезагрузить страницу.')
+              this.props.raiseNotification('{t("ErrorGettingFormInformation")}. {t("TryReloadingThePage")}.')
               return false
             }
           }, null
