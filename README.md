@@ -93,4 +93,4 @@ Environment variables:
 - `pulling_period` — period of receiving data from the backend in milliseconds;
 - `use_devtools` — using devtools;
 - `show_test_schemas` — whether to show test schemes.
-# feecc-workbench-frotend1
+
