@@ -113,15 +113,16 @@ export default withSnackbar(
             }
           };
           eventSource.onerror = (e) => {
+            const { t } = this.props;
             this.setState({ SSEErrorFlag: true });
             const errorEvent = this.props.enqueueSnackbar(
-              `Соединение с сервером не может быть установлено. Попытка повторного подключения через ${this.state.reconnectInterval} секунд`,
+              `{t("ConnectionToTheServerCouldNotBeEstablished")}. {t("TryingToReconnectVia")} ${this.state.reconnectInterval} {t("seconds")}`,
               {
                 variant: "error",
                 persist: true,
                 action: RepeatCloseActionButton.bind({
                   action: this.setupSSEConnection,
-                  actionName: "Повторить",
+                  actionName: "{t('Repeat')}",
                 }),
                 preventDuplicate: true,
               }
@@ -133,11 +134,12 @@ export default withSnackbar(
           };
 
           eventSource.onopen = (e) => {
+            const { t } = this.props;
             this.props.closeSnackbar(this.state.errorEvent);
 
             if (this.state.SSEErrorFlag) {
               this.props.enqueueSnackbar(
-                "Соединение с сервером восстановлено",
+                "{t(TheConnectionToTheServerHasBeenRestored')}",
                 {
                   variant: "success",
                   persist: false,
@@ -146,7 +148,7 @@ export default withSnackbar(
                 }
               );
             } else {
-              this.props.enqueueSnackbar("Соединение с сервером установлено", {
+              this.props.enqueueSnackbar("{t('ConnectionToServerEstablished')}", {
                 variant: "success",
                 persist: false,
                 action: CloseActionButton,
@@ -211,6 +213,7 @@ export default withSnackbar(
         };
 
         componentDidMount() {
+          const { t } = this.props;
           this.setupSSEConnection();
           this.setupNotificationsSSEConnection();
 
@@ -222,7 +225,7 @@ export default withSnackbar(
                 this.props.authorized
               ) {
                 this.props.enqueueSnackbar(
-                  "Внимание! Доступно 0 сборок. Свяжитесь с администратором системы для добавления необходимых сборок в базу.",
+                  "{t('Attention')}! {t('BuildsAvailableZero')}. {t('ContactYourSystemAdministratorToAddTheNecessaryAssembliesToTheDatabase')}.",
                   { variant: "warning" }
                 );
               }
