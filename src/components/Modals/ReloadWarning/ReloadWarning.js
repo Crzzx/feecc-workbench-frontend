@@ -34,7 +34,7 @@ const ReloadWarning = (props) => {
           variant="contained"
           onClick={onClose}
         >
-          {t('СloseButton')}
+          {t("СloseButton")}
         </LoadingButton>
       </div>
     </div>

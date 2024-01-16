@@ -21,7 +21,7 @@ function RepeatCloseActionButton(key) {
           closeSnackbar(key);
         }}
       >
-        {t('СloseButton')}
+        {t("СloseButton")}
       </button>
     </div>
   );

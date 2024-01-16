@@ -122,7 +122,7 @@ export default withSnackbar(
                 persist: true,
                 action: RepeatCloseActionButton.bind({
                   action: this.setupSSEConnection,
-                  actionName: "{t('Repeat')}",
+                  actionName: `{t('Repeat66')}`,
                 }),
                 preventDuplicate: true,
               }
@@ -139,7 +139,7 @@ export default withSnackbar(
 
             if (this.state.SSEErrorFlag) {
               this.props.enqueueSnackbar(
-                "{t(TheConnectionToTheServerHasBeenRestored')}",
+                `{t('TheConnectionToTheServerHasBeenRestored')}`,
                 {
                   variant: "success",
                   persist: false,
@@ -148,12 +148,15 @@ export default withSnackbar(
                 }
               );
             } else {
-              this.props.enqueueSnackbar("{t('ConnectionToServerEstablished')}", {
-                variant: "success",
-                persist: false,
-                action: CloseActionButton,
-                preventDuplicate: false,
-              });
+              this.props.enqueueSnackbar(
+                `{t("ConnectionToServerEstablished")}`,
+                {
+                  variant: "success",
+                  persist: false,
+                  action: CloseActionButton,
+                  preventDuplicate: false,
+                }
+              );
             }
           };
           this.setState({ eventSource });
@@ -225,7 +228,7 @@ export default withSnackbar(
                 this.props.authorized
               ) {
                 this.props.enqueueSnackbar(
-                  "{t('Attention')}! {t('BuildsAvailableZero')}. {t('ContactYourSystemAdministratorToAddTheNecessaryAssembliesToTheDatabase')}.",
+                  `{t('Attention')}! {t('BuildsAvailableZero')}. {t('ContactYourSystemAdministratorToAddTheNecessaryAssembliesToTheDatabase')}.`,
                   { variant: "warning" }
                 );
               }

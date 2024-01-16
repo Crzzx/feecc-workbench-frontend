@@ -340,7 +340,7 @@ class Composition extends React.Component {
                   unitID={this.props.compositionID}
                 />
               ),
-            actionName: "{t('ContinueWithoutSaving')}",
+            actionName: `{t('ContinueWithoutSaving')}`,
           };
           const proceedKey = this.props.enqueueSnackbar(
             `{t('ErrorLoadingAssembly')}. {t('ResponseCode')} ${res?.response?.status}`,
@@ -615,7 +615,7 @@ class Composition extends React.Component {
                           }
                         }}
                       >
-                        {onPause ? "{t('Unpause')}" : t("SetOnPause")}
+                        {onPause ? `{t("Unpause")}` : t("SetOnPause")}
                       </LoadingButton>
                     </div>
                     {activeStep !== this.props.steps?.length - 1 && (
