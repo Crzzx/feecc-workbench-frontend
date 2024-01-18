@@ -13,7 +13,7 @@ const ReloadWarning = (props) => {
     <div className={styles.contentWrapper}>
       <div className={styles.contentHeader}>{t("ImportantMessage")}</div>
       <div className={styles.contentText}>
-        {t('YouAreAboutToReloadThePage')}. <br/>{t('This')} <strong>{t('May')} </strong>,{t('But')} <strong>{t("shouldn't")} </strong>{t('LeadToErrorsAtThisStage')}. {t('IfItIsPossibleNotToReloadThePage')}, {t('ThenYouShouldUseIt')}.
+        {t('YouAreAboutToReloadThePage')}. <br/>{t('This')} <strong>{t('May')}, </strong>{t('But')} <strong>{t("shouldn't")} </strong>{t('LeadToErrorsAtThisStage')}. {t('IfItIsPossibleNotToReloadThePage')}, {t('ThenYouShouldUseIt')}.
       </div>
       <div className={styles.buttonsWrapper}>
         <LoadingButton

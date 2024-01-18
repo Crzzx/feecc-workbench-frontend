@@ -35,7 +35,7 @@ export default withTheme(withTranslation()(connect(
               this.setState({schemas: {...obj}})
               return true
             } else {
-              this.props.raiseNotification(`{t("ErrorGettingFormInformation")}. {t("TryReloadingThePage")}.`)
+              this.props.raiseNotification(`${t("ErrorGettingFormInformation")}. ${t("TryReloadingThePage")}.`)
               return false
             }
           }, null

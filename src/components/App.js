@@ -116,13 +116,13 @@ export default withSnackbar(
             const { t } = this.props;
             this.setState({ SSEErrorFlag: true });
             const errorEvent = this.props.enqueueSnackbar(
-              `{t("ConnectionToTheServerCouldNotBeEstablished")}. {t("TryingToReconnectVia")} ${this.state.reconnectInterval} {t("seconds")}`,
+              `${t("ConnectionToTheServerCouldNotBeEstablished")}. ${t("TryingToReconnectVia")} ${this.state.reconnectInterval} ${t("seconds")}`,
               {
                 variant: "error",
                 persist: true,
                 action: RepeatCloseActionButton.bind({
                   action: this.setupSSEConnection,
-                  actionName: `{t('Repeat66')}`,
+                  actionName: `${t('Repeat')}`,
                 }),
                 preventDuplicate: true,
               }
@@ -139,7 +139,7 @@ export default withSnackbar(
 
             if (this.state.SSEErrorFlag) {
               this.props.enqueueSnackbar(
-                `{t('TheConnectionToTheServerHasBeenRestored')}`,
+                `${t('TheConnectionToTheServerHasBeenRestored')}`,
                 {
                   variant: "success",
                   persist: false,
@@ -149,7 +149,7 @@ export default withSnackbar(
               );
             } else {
               this.props.enqueueSnackbar(
-                `{t("ConnectionToServerEstablished")}`,
+                `${t("ConnectionToServerEstablished")}`,
                 {
                   variant: "success",
                   persist: false,
@@ -228,7 +228,7 @@ export default withSnackbar(
                 this.props.authorized
               ) {
                 this.props.enqueueSnackbar(
-                  `{t('Attention')}! {t('BuildsAvailableZero')}. {t('ContactYourSystemAdministratorToAddTheNecessaryAssembliesToTheDatabase')}.`,
+                  `${t('Attention')}! ${t('BuildsAvailableZero')}. ${t('ContactYourSystemAdministratorToAddTheNecessaryAssembliesToTheDatabase')}.`,
                   { variant: "warning" }
                 );
               }

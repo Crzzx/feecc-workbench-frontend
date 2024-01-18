@@ -86,7 +86,7 @@ export default withSnackbar(
                   this.props.authorized
                 ) {
                   this.props.enqueueSnackbar(
-                    `{t('Attention')}! {t('BuildsAvailableZero')}. {t('ContactYourSystemAdministratorToAddTheNecessaryAssembliesToTheDatabase')}.`,
+                    `${t('Attention')}! ${t('BuildsAvailableZero')}. ${t('ContactYourSystemAdministratorToAddTheNecessaryAssembliesToTheDatabase')}.`,
                     { variant: "warning" }
                   );
                 }
@@ -115,7 +115,7 @@ export default withSnackbar(
                     // Check if the whole scheme is empty
                     if (schema === null) {
                       this.props.enqueueSnackbar(
-                        `{t('Error')}. {t('ThisSchemeIsNotAvailable')}. {t('ContactYourAdministratorToResolveThisIssue')}.`,
+                        `${t('Error')}. ${t('ThisSchemeIsNotAvailable')}. ${t('ContactYourAdministratorToResolveThisIssue')}.`,
                         { variant: "error" }
                       );
                       reject(res);
@@ -123,7 +123,7 @@ export default withSnackbar(
                     // Check if this scheme has no stages at all
                     if (schema.production_stages === null) {
                       this.props.enqueueSnackbar(
-                        `{t('Error')}. {t('ThisSchemeDoesNotContainSingleStage')}. {t('ContactYourAdministratorToResolveThisIssue')}.`,
+                        `${t('Error')}. ${t('ThisSchemeDoesNotContainSingleStage')}. ${t('ContactYourAdministratorToResolveThisIssue')}.`,
                         { variant: "error" }
                       );
                       reject(res);

@@ -224,7 +224,7 @@ class Composition extends React.Component {
             return true;
           } else {
             this.props.enqueueSnackbar(
-              `{t('FailedToRetrieveProductInformation')}. {t('TryLater')}. {t('IfTheErrorPersists')}, {t('ContactYourSystemAdministratorToResolveTheProblem')}. {t('ErrorCode')}: ${res.status_code}`,
+              `${t('FailedToRetrieveProductInformation')}. ${t('TryLater')}. ${t('IfTheErrorPersists')}, ${t('ContactYourSystemAdministratorToResolveTheProblem')}. ${t('ErrorCode')}: ${res.status_code}`,
               { variant: "error" }
             );
             // console.log("FETCH ERROR");
@@ -253,7 +253,7 @@ class Composition extends React.Component {
             return true;
           } else {
             this.props.enqueueSnackbar(
-              `{t('FailedToStartRecordingTheStage')}. {t('PleaseTryAgainLater')}. {t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. {t('ErrorCode')}: ${res.status_code}`,
+              `${t('FailedToStartRecordingTheStage')}. ${t('PleaseTryAgainLater')}. ${t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. ${t('ErrorCode')}: ${res.status_code}`,
               { variant: "error" }
             );
             reject("Error during attempt to start recording");
@@ -276,7 +276,7 @@ class Composition extends React.Component {
           return true;
         } else {
           this.props.enqueueSnackbar(
-            `{t('FailedToCompleteStageRecording')}. {t('PleaseTryAgainLater')}. {t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. {t('ErrorCode')} ${res.status_code}`,
+            `${t('FailedToCompleteStageRecording')}. ${t('PleaseTryAgainLater')}. ${t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. ${t('ErrorCode')} ${res.status_code}`,
             { variant: "error" }
           );
           this.toggleButtonLoading(loadBlock);
@@ -321,7 +321,7 @@ class Composition extends React.Component {
       .then((unitID) => {
         this.toggleButtonLoading(2);
         this.props.enqueueSnackbar(
-          `{t('Passport')} ${unitID} {t('SuccessfullyUploadedToIPFSNetwork')}`,
+          `${t('Passport')} ${unitID} ${t('SuccessfullyUploadedToIPFSNetwork')}`,
           {
             variant: "success",
           }
@@ -340,10 +340,10 @@ class Composition extends React.Component {
                   unitID={this.props.compositionID}
                 />
               ),
-            actionName: `{t('ContinueWithoutSaving')}`,
+            actionName: `${t('ContinueWithoutSaving')}`,
           };
           const proceedKey = this.props.enqueueSnackbar(
-            `{t('ErrorLoadingAssembly')}. {t('ResponseCode')} ${res?.response?.status}`,
+            `${t('ErrorLoadingAssembly')}. ${t('ResponseCode')} ${res?.response?.status}`,
             {
               variant: "error",
               action: RepeatCloseActionButton.bind(bindObject),
@@ -366,7 +366,7 @@ class Composition extends React.Component {
           return true;
         } else {
           this.props.enqueueSnackbar(
-            `{t('FailedToRemoveAssemblyFromTable')}. {t('PleaseTryAgainLater')}. {t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. {t('ErrorCode')} ${res.status_code}`,
+            `${t('FailedToRemoveAssemblyFromTable')}. ${t('PleaseTryAgainLater')}. ${t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. ${t('ErrorCode')} ${res.status_code}`,
             { variant: "error" }
           );
           return false;
@@ -402,7 +402,7 @@ class Composition extends React.Component {
           return true;
         } else {
           this.props.enqueueSnackbar(
-            `{t('FailedToRemoveAssemblyFromTable')}. {t('PleaseTryAgainLater')}. {t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. {t('ErrorCode')} ${res.status_code}`,
+            `${t('FailedToRemoveAssemblyFromTable')}. ${t('PleaseTryAgainLater')}. ${t('IfThisErrorOccursMultipleTimesContactYourSystemAdministrator')}. ${t('ErrorCode')} ${res.status_code}`,
             { variant: "error" }
           );
           return false;
@@ -615,7 +615,7 @@ class Composition extends React.Component {
                           }
                         }}
                       >
-                        {onPause ? `{t("Unpause")}` : t("SetOnPause")}
+                        {onPause ? `${t("Unpause")}` : t("SetOnPause")}
                       </LoadingButton>
                     </div>
                     {activeStep !== this.props.steps?.length - 1 && (

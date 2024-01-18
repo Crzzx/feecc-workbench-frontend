@@ -41,7 +41,7 @@ const ProceedNotSaved = (props) => {
           onClick={() => {
             props.onNoSave && props.onNoSave();
             enqueueSnackbar(
-              `{t('Passport')} ${props.unitID} {t('WasNotSavedInIPFS')}. {t('YouShouldComeBackToItLater')}`,
+              `${t('Passport')} ${props.unitID} ${t('WasNotSavedInIPFS')}. ${t('YouShouldComeBackToItLater')}`,
               { variant: "warning", action: CloseActionButton }
             );
             onClose();
