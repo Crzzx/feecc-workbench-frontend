@@ -65,7 +65,7 @@ WasNotSavedInIPFS,не был сохранён в IPFS,was not saved in IPFS
 YouShouldComeBackToItLater,Вам следует вернуться к нему позже,You should come back to it later
 ContinueWithoutSaving,Продолжить без сохранения,Continue without saving
 Return,Вернуться,Return
-СloseButton,Закрыть,Close
+CloseButton,Закрыть,Close
 FailedToRetrieveProductInformation,Не удалось получить информацию об изделии,Failed to retrieve product information
 TryLater,Попробуйте позже,Try later
 IfTheErrorPersists,Если ошибка повторится,If the error persists

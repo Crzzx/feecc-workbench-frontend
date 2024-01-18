@@ -11,7 +11,7 @@ const CloseActionButton = (key) => {
       className={styles.notificationButton}
       onClick={() => closeSnackbar(key)}
     >
-      {t("CloseButton")}
+      {t('CloseButton')}
     </button>
   );
 };
